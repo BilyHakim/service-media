@@ -1,0 +1,23 @@
+# Direktori Node.js
+node_modules/
+
+# File log
+logs
+*.log
+
+# File hasil build
+dist/
+out/
+
+# File environment
+.env
+
+# File konfigurasi lokal
+config/local.js
+
+# File debug VSCode
+.vscode/
+
+# File sistem operasi
+.DS_Store
+Thumbs.db
