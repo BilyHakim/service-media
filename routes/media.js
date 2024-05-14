@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   const image = req.body.image;
 
   if (!isBase64(image, { mimeRequired: true })) {
@@ -29,13 +29,13 @@ router.post("/", (req, res) => {
     // '/public/images/123456.png'
     const filename = filepath.split("\\").pop().split("/").pop();
 
-    const media = await Media.create({ image: `image/${filename}` });
+    const media = await Media.create({ image: `/images/${filename}` });
 
     return res.json({
       status: "success",
       data: {
         id: media.id,
-        image: `${req.get("host")}images/${filename}`,
+        image: `${req.get("host")}/images/${filename}`,
       },
     });
   });
